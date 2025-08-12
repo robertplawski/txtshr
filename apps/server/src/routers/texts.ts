@@ -30,7 +30,7 @@ export const textsRouter = router({
     .input(deleteTextSchema)
     .mutation(async ({ input, ctx }) => {
       const { id } = input;
-      const result = await db
+      const result = await db()
         .delete(texts)
         .where(and(like(texts.id, id), eq(texts.userId, ctx.session.user.id)))
         .returning();
@@ -44,7 +44,7 @@ export const textsRouter = router({
       const id = nanoid(10);
       const now = new Date();
 
-      const [text] = await db
+      const [text] = await db()
         .insert(texts)
         .values({
           id,
@@ -66,7 +66,7 @@ export const textsRouter = router({
       const id = nanoid(10);
       const now = new Date();
 
-      const [text] = await db
+      const [text] = await db()
         .insert(texts)
         .values({
           id,
@@ -83,7 +83,7 @@ export const textsRouter = router({
 
   getAll: publicProcedure.input(getTextsSchema).query(async ({ input }) => {
     const [allTexts, totalCount] = await Promise.all([
-      db
+      db()
         .select({
           id: texts.id,
           title: texts.title,
@@ -97,7 +97,7 @@ export const textsRouter = router({
         .orderBy(desc(texts.createdAt))
         .limit(input.limit)
         .offset(input.offset),
-      db
+      db()
         .select({ count: texts.id })
         .from(texts)
         .where(eq(texts.visibility, "public"))
@@ -114,7 +114,7 @@ export const textsRouter = router({
   getById: publicProcedure
     .input(getTextSchema)
     .query(async ({ input, ctx }) => {
-      const text = await db
+      const text = await db()
         .select({
           id: texts.id,
           title: texts.title,
@@ -150,7 +150,7 @@ export const textsRouter = router({
     .input(getTextsSchema)
     .query(async ({ input, ctx }) => {
       const [myTexts, totalCount] = await Promise.all([
-        db
+        db()
           .select({
             id: texts.id,
             title: texts.title,
@@ -162,7 +162,7 @@ export const textsRouter = router({
           .orderBy(desc(texts.createdAt))
           .limit(input.limit)
           .offset(input.offset),
-        db
+        db()
           .select({ count: texts.id })
           .from(texts)
           .where(eq(texts.userId, ctx.session.user.id))

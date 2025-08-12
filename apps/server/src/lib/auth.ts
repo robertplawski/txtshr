@@ -5,7 +5,7 @@ import * as schema from "../db/schema/auth";
 import { env } from "cloudflare:workers";
 
 export const auth = betterAuth({
-  database: drizzleAdapter(db, {
+  database: drizzleAdapter(db(), {
     provider: "sqlite",
 
     schema: schema,

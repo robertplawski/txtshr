@@ -5,6 +5,8 @@
   "compatibility_flags": ["nodejs_compat"],
   "vars": {
     "NODE_ENV": "production",
+    "CORS_ORIGIN": "https://txtshr.pages.dev",
+    "BETTER_AUTH_URL": "https://txtshr-server.workers.dev",
     // Add public environment variables here
     // Example: "CORS_ORIGIN": "https://your-domain.com"
   },
