@@ -65,7 +65,9 @@ function RecentTextsSection() {
                 }
               >
                 <CardHeader>
-                  <CardTitle className="text-lg">{text.title}</CardTitle>
+                  <CardTitle className="text-lg overflow-ellipsis overflow-hidden text-nowrap">
+                    {text.title}
+                  </CardTitle>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <span>by {text.username || "Anonymous"}</span>
                     <span>•</span>

@@ -10,7 +10,7 @@ const deleteTextSchema = z.object({
 });
 
 const createTextSchema = z.object({
-  title: z.string().min(1).max(255),
+  title: z.string().min(1).max(35),
   content: z.string().min(1),
   visibility: z.enum(["public", "unlisted", "private"]).default("public"),
 });

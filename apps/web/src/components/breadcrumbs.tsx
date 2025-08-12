@@ -24,7 +24,7 @@ export function Breadcrumbs() {
   });
 
   return (
-    <nav aria-label="Breadcrumb" className="my-4">
+    <nav aria-label="Breadcrumb" className="mb-7">
       <ol className="flex items-center space-x-2 text-sm">
         <li>
           <Link

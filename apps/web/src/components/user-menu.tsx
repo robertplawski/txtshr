@@ -33,14 +33,14 @@ export default function UserMenu() {
       <DropdownMenuTrigger asChild>
         <Button variant="outline">{session.user.name}</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-card">
+      <DropdownMenuContent className="bg-card flex flex-col ">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>{session.user.email}</DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Button
             variant="destructive"
-            className="w-full"
+            className="w-full mt-1"
             onClick={() => {
               authClient.signOut({
                 fetchOptions: {

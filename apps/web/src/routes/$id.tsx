@@ -123,9 +123,11 @@ function RouteComponent() {
     <div className="col-span-2  h-full flex flex-col p-0 break-all container mx-auto max-w-4xl">
       <Card className="flex-1">
         <CardHeader>
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between flex-wrap gap-4 items-start">
             <div>
-              <CardTitle className="text-2xl">{text.title}</CardTitle>
+              <CardTitle className="text-2xl">
+                {text.title.slice(0, 35)}
+              </CardTitle>
               <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
                 <span>by {text.username || "Anonymous"}</span>
                 <span>•</span>

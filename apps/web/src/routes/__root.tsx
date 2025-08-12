@@ -81,6 +81,7 @@ function RootComponent() {
             </div>
           </div>
         </div>
+
         <Toaster />
       </ThemeProvider>
       <TanStackRouterDevtools position="bottom-left" />
