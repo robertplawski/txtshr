@@ -4,6 +4,7 @@ import { texts } from "../db/schema/texts";
 import { db } from "../db";
 import { eq, desc, or, and, like } from "drizzle-orm";
 import { nanoid } from "nanoid";
+import { user } from "../db/schema/auth";
 
 const deleteTextSchema = z.object({
   id: z.string(),
@@ -81,8 +82,6 @@ export const textsRouter = router({
     }),
 
   getAll: publicProcedure.input(getTextsSchema).query(async ({ input }) => {
-    const { user } = await import("../db/schema/auth");
-
     const [allTexts, totalCount] = await Promise.all([
       db
         .select({
@@ -115,8 +114,6 @@ export const textsRouter = router({
   getById: publicProcedure
     .input(getTextSchema)
     .query(async ({ input, ctx }) => {
-      const { user } = await import("../db/schema/auth");
-
       const text = await db
         .select({
           id: texts.id,
