@@ -17,6 +17,7 @@ export const auth = betterAuth({
   advanced: {
     defaultCookieAttributes: {
       secure: true,
+      sameSite: "None",
     },
   },
   socialProviders: {
