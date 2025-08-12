@@ -3,10 +3,15 @@
   "main": "src/index.ts",
   "compatibility_date": "2025-06-15",
   "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "logs": {
+      "enabled": true,
+    },
+  },
   "vars": {
     "NODE_ENV": "production",
     "CORS_ORIGIN": "https://txtshr.pages.dev",
-    "BETTER_AUTH_URL": "https://txtshr-server.workers.dev",
+    "BETTER_AUTH_URL": "https://txtshr-server.robertplawski8.workers.dev",
     // Add public environment variables here
     // Example: "CORS_ORIGIN": "https://your-domain.com"
   },
